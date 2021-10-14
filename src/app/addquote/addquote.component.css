@@ -1,9 +1,15 @@
-
-  .col-lg-10 {
-    margin-top: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 80%;
-    justify-content: center;
-  }
-
+.col-lg-10 {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 80%;
+  justify-content: center;
+}
+.form-group {
+  margin-top: 20pxpx;
+  margin-bottom: 20px;
+}
+.form-control {
+  margin-top: 20pxpx;
+  margin-bottom: 20px;
+}
