@@ -9,6 +9,7 @@ import { QuotesService } from '../services/quotes/quotes.service';
 })
 export class DashboardComponent implements OnInit {
   quotesList: any;
+  maxlength = 0
 
   constructor(private quotesService: QuotesService) {}
 
@@ -18,6 +19,10 @@ export class DashboardComponent implements OnInit {
   getAllQuotes() {
     this.quotesService.getAllQuotes().subscribe((data: any) => {
       this.quotesList = data.result;
+      data.result.forEach((element:any) => {
+        if(this.maxlength < element.text.length){
+          this.maxlength = element.text.length
+      }});
     });
   }
 
