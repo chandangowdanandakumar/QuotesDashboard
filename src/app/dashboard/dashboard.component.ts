@@ -1,16 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { QuotesService } from '../services/quotes/quotes.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  quotesList = [1,2,3,4,5,6,7,8,9,10]
+  quotesList: any;
 
-  constructor() { }
+  constructor(private quotesService: QuotesService) {}
 
   ngOnInit(): void {
+    this.getAllQuotes();
+  }
+  getAllQuotes() {
+    this.quotesService.getAllQuotes().subscribe((data: any) => {
+      this.quotesList = data.result;
+    });
   }
 
+  viewQuote(id: any) {
+    this.quotesService.getQuote(id).subscribe((data: any) => {});
+  }
+
+  deleteQuote(id: any) {
+    this.quotesService.deleteQuote(id).subscribe((data: any) => {
+      alert(data.result);
+      this.getAllQuotes();
+    });
+  }
 }

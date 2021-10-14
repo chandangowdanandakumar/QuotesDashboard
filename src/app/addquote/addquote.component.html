@@ -1,20 +1,26 @@
 <div class="row">
-    <div class="col-lg-10">
-        <div class="card">
-            <div class="card-body">
-
-                <form>
-                    <div class="form-group">
-                      <label for="author">Author</label>
-                      <input type="text" class="form-control" id="author" placeholder="Enter Author">
-                         </div>
-                    <div class="form-group">
-                      <label for="quote">Quote</label>
-                      <textarea class="form-control" id="quote" rows="10"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" routerLink='/'>Add Quote</button>
-                  </form>
-            </div>
-        </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="addQuote" (ngSubmit)="addQuotes()">
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="title"
+              placeholder="Enter Author"
+            />
+          </div>
+          <div class="form-group">
+            <label for="quote">Quote</label>
+            <textarea class="form-control"   formControlName="text" rows="10" placeholder="Enter Quote"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Add Quote
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
