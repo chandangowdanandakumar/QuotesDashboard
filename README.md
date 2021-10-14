@@ -29,4 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Docker
 
 Build : `docker build -t frontend .`
+
 Run : `docker run --name frontend-container -d -p 8080:80 frontend`
