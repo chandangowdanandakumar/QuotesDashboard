@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Build : `docker build -t frontend .`
 
-Run : `docker run --name frontend-container -d -p 8080:80 frontend`
+Run : `docker run  --rm -p 4201:4200 frontend`

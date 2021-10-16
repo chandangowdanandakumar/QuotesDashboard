@@ -1,9 +1,9 @@
-FROM node:16-alpine3.11 as build-step
-RUN mkdir -p /app
-WORKDIR /app
-COPY . /app
-RUN npm run build --prod
+FROM node:16-alpine3.11
+WORKDIR /usr/src/app
+COPY package.json .
+RUN npm install
 
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY dist/frontend /usr/share/nginx/html
+COPY . .
+RUN npm run build --prod
+EXPOSE 4200
+CMD /usr/src/app/node_modules/.bin/ng serve --host 0.0.0.0 --disableHostCheck
